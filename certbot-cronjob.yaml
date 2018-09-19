@@ -1,0 +1,29 @@
+kind: CronJob
+apiVersion: batch/v1beta1
+metadata:
+    annotations: 
+        description: "Cron Job to management let's encrypt certificate renewal"
+    name: certbot-cronjob
+spec:
+    schedule: "*/2 * * * *"
+    jobTemplate:
+        spec:
+            template:
+                spec:
+                    restartPolicy: Never
+                    containers:
+                      - image: certbot-imagestream
+                        name: certbot
+                        command:
+                            - ./getcert.sh
+                        env:
+                          - name: LE_CREDS_FILE
+                            value: "/etc/luadns/luadns.ini"
+                          - name: LE_EMAIL
+                            value: "eric@ehw.io"
+                          - name: LE_DOMAIN_NAME
+                            value: "le.test.ehw.io"
+                          # - name: APP_SCRIPT
+                          #   value: "${APP_DIR}/src/getcert.sh"
+                serviceAccountName: certbot
+      

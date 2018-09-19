@@ -15,6 +15,9 @@ spec:
     strategy:
         type: Source
         sourceStrategy:
+            env:
+              - name: UPGRADE_PIP_TO_LATEST
+                value: "yes"
             from:
                 kind: DockerImage
                 name: rhscl/python-27-rhel7

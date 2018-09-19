@@ -1,7 +1,7 @@
 #!/bin/bash
 
-zcat ${APP_DIR}/src/oc.gz > ${APP_DIR}/src/oc
-chmod 755 ${APP_DIR}/src/oc
+zcat ${APP_ROOT}/src/oc.gz > ${APP_ROOT}/src/oc
+chmod 755 ${APP_ROOT}/src/oc
 
 certbot certonly \
   --non-interactive \
