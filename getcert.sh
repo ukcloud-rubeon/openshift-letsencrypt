@@ -11,6 +11,7 @@ certbot certonly \
   --config-dir=config/ \
   --work-dir=work/ \
   --logs-dir=logs/ \
+  --renew-hook=${APP_ROOT}/src/renew-hook.sh \
   --dns-luadns-credentials=${LE_CREDS_FILE} \
   -m ${LE_EMAIL} \
   -d ${LE_DOMAIN_NAME} 

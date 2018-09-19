@@ -25,5 +25,14 @@ spec:
                             value: "le.test.ehw.io"
                           # - name: APP_SCRIPT
                           #   value: "${APP_DIR}/src/getcert.sh"
+                        volumeMounts:
+                            - name: letsencrypt-creds
+                              mountPath: /etc/luadns/
+                              readOnly: true
+                    volumes:
+                        - name: letsencrypt-creds
+                          secret:
+                              secretName: certbot-credentials
+                              
                 serviceAccountName: certbot
       
