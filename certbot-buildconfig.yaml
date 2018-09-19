@@ -7,6 +7,18 @@ spec:
         to:
             kind: ImageStreamTag
             name: certbot-imagestream:latest
-        source:
-            git:
-                ref: 
+    source:
+        git:
+            ref: ""
+            uri: https://github.com/ukcloud-rubeon/openshift-letsencrypt.git
+        type: Git
+    strategy:
+        type: Source
+        sourceStrategy:
+            from:
+                kind: DockerImage
+                name: rhscl/python-27-rhel7
+    triggers:
+        - type: ImageChange
+        - type: ConfigChange
+                

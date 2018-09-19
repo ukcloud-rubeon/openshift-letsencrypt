@@ -1,2 +1,3 @@
+setuptools > 18.0
 certbot
 certbot-dns-luadns
