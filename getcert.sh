@@ -18,9 +18,6 @@ certbot certonly \
   
 # update the cert
 
-if $?; then
-   echo "Updating the router's certificate"
-fi
 
   
   
