@@ -1,0 +1,12 @@
+kind: BuildConfig
+metadata:
+    name: certbot-buildconfig
+    description: Build configuration for the certbot image
+spec:
+    output:
+        to:
+            kind: ImageStreamTag
+            name: certbot-imagestream:latest
+        source:
+            git:
+                ref: 

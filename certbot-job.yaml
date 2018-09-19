@@ -1,0 +1,25 @@
+kind: Job
+apiVersion: batch/v1
+metadata:
+    name: certbot-job
+spec:
+    parallelism: 1
+    completions: 1
+    template:
+        metadata:
+            name: certbot-job
+        spec:
+            restartPolicy: Never
+            containers:
+                - image: certbot-imagestream
+                  name: certbot
+                  command:
+                      - ./getcert.sh
+                  env:
+                    - name: LE_CREDS_FILE
+                      value: /etc/luadns/luadns.ini
+                    - name: LE_EMAIL
+                      value: eric@ehw.io
+                    - name: LE_DOMAIN_NAME
+                      value: le.test.ehw.io
+            serviceAccountName: certbot

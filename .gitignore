@@ -1,0 +1,7 @@
+*.ini
+*~
+tmp/
+work/
+logs/
+config/
+.s2i/
