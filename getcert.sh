@@ -2,7 +2,7 @@
 
 zcat ${APP_ROOT}/src/oc.gz > ${APP_ROOT}/src/oc
 chmod 755 ${APP_ROOT}/src/oc
-
+${APP_ROOT}/src/oc whoami
 certbot certonly \
   --non-interactive \
   --agree-tos \
